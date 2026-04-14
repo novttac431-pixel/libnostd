@@ -1,0 +1,13 @@
+name: Check scripts
+
+on:
+  push:
+
+jobs:
+  check-scrippts:
+    runs-on: ununtu-latest
+    steps:
+      - user: actions/checkout@v4
+      - name: Check scripts with shellcheck
+        run: shellcheck -a -C --shell sh scripts/*.sh
+  
