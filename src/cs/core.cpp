@@ -1,4 +1,12 @@
-#include <iostream>
+/**
+* @file
+* @brief Core utils for computer scince
+* @date 2026-04-21
+* @authores Shiryaev
+* @copyright MIT License
+**/
+
+#include <srting>
 
 namespace cs {
 
