@@ -45,16 +45,25 @@ if[ "$1" - "clean" ]; then
 	fi
 fi
 
+cmake -S "$ROOTDIR" -B "$BUILDDIR"
+
+ret=$?
+if [$ret -eq 0]; then
+	print_success "CMake configuration completed successfully"
+else
+	print_error "CMake configuration failed"
+	exit 1
+fi
+
+
 
 print_header "Configure the project"
 print_step "Running CMake in $BUILDDIR..."
 
-cmake -S "$ROOTDIR" -B "$BUILDDIR"
-
-
 cmake --build "$ROOTDIR/build"
 
-if [$? -eq 0]; then
+ret=$?
+if [$ret -eq 0]; then
 	print_success "Project build completed successfully"
 else
 	print_error "Project build failed"
